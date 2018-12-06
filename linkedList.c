@@ -58,16 +58,23 @@ void genList(void)   //list의 실체 만들기(header node만들기)
 	return;
 }
 
-void print_list(void)   //유의미한 data가 있는 node의 값을 출력(2번째 node부터 출력) 
+void print_list(int n)   //유의미한 data가 있는 node의 값을 출력(2번째 node부터 출력) 
 {
 	linknd_t *ndPtr;
+	int i = 0;
 	
-	ndPtr = list->next;
+	ndPtr = (linknd_t*)/*명시적 형변환*/list->next;
 	
 	while(ndPtr != NULL)
 	{
-		printf("%i ", ndPtr->data);
+		i++;
 		
+		if(i == n)
+		{
+			printf("%dth value : %i\n", i, ndPtr->data);
+			break;
+		}
+	
 		ndPtr = ndPtr->next;
 	}
 }

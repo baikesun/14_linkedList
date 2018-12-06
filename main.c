@@ -11,7 +11,7 @@ int main(void)
 	addTail(40);
 	addTail(50);
 	
-	print_list();
+	print_list(3);
 	
 	return 0;
 }
