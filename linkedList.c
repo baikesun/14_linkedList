@@ -29,7 +29,7 @@ linknd_t* create_node(int value)   //header node를 가리키는 함수
 	return ndPtr; 
 }
 
-void addTail(int value)
+void addTail(int value)   //다음 node 마지막을 가리키는 함수 
 {
 	linknd_t *ndPtr, *newPtr;   //node를 가리키는 포인터 변수 
 	
@@ -48,5 +48,26 @@ void addTail(int value)
 		
 		newPtr = create_node(value);
 		ndPtr->next = newPtr;   //새로 만든 node를 가리키게 함 
+	}
+}
+
+void genList(void)   //list의 실체 만들기(header node만들기) 
+{
+	list = create_node(0);
+	
+	return;
+}
+
+void print_list(void)   //유의미한 data가 있는 node의 값을 출력(2번째 node부터 출력) 
+{
+	linknd_t *ndPtr;
+	
+	ndPtr = list->next;
+	
+	while(ndPtr != NULL)
+	{
+		printf("%i ", ndPtr->data);
+		
+		ndPtr = ndPtr->next;
 	}
 }
